@@ -1,0 +1,28 @@
+syntax = "proto3";
+
+package nova.v1;
+
+import "nova/type/media.proto";
+import "nova/type/region.proto";
+
+service CertifierService {
+  rpc ListCertifiers(ListCertifiersRequest) returns (ListCertifiersResponse) {}
+}
+
+message ListCertifiersRequest {
+  string query = 1;
+  nova.type.Region country = 2;
+}
+
+message ListCertifiersResponse {
+  repeated Certifier certifiers = 1;
+}
+
+message Certifier {
+  string id = 1;
+  string name = 2;
+  nova.type.Media photo = 3;
+  nova.type.Region country = 4;
+  nova.type.Region state = 5;
+  nova.type.Region city = 6;
+}

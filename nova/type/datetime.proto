@@ -1,0 +1,16 @@
+syntax = "proto3";
+
+package nova.type;
+
+import "nova/type/timezone.proto";
+
+message DateTime {
+  int32 year = 1;
+  int32 month = 2;
+  int32 day = 3;
+  int32 hour = 4;
+  int32 minute = 5;
+  int32 second = 6;
+  int32 nano = 7;
+  Timezone timezone = 8;
+}

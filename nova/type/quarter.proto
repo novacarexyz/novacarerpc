@@ -1,0 +1,11 @@
+syntax = "proto3";
+
+package nova.type;
+
+enum Quarter {
+  QUARTER_UNSPECIFIED = 0;
+  QUARTER_FIRST = 1;
+  QUARTER_SECOND = 2;
+  QUARTER_THIRD = 3;
+  QUARTER_FOURTH = 4;
+}

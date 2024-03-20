@@ -1,0 +1,23 @@
+syntax = "proto3";
+
+package nova.v1;
+
+import "nova/type/media.proto";
+
+service SpecialtyService {
+  rpc ListSpecialties(ListSpecialtiesRequest) returns (ListSpecialtiesResponse) {}
+}
+
+message ListSpecialtiesRequest {
+  string query = 1;
+}
+
+message ListSpecialtiesResponse {
+  repeated Specialty specialties = 1;
+}
+
+message Specialty {
+  string id = 1;
+  string name = 2;
+  nova.type.Media photo = 3;
+}

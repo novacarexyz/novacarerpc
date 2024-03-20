@@ -1,0 +1,8 @@
+syntax = "proto3";
+
+package nova.v1;
+
+enum VerificationStatus {
+  VERIFICATION_STATUS_UNSPECIFIED = 0;
+  VERIFICATION_STATUS_VERIFIED = 1;
+}

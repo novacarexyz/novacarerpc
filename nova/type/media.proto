@@ -1,0 +1,7 @@
+syntax = "proto3";
+
+package nova.type;
+
+message Media {
+  string url = 1;
+}

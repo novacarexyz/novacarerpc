@@ -1,0 +1,17 @@
+syntax = "proto3";
+
+package nova.type;
+
+enum Period {
+  PERIOD_UNSPECIFIED = 0;
+  PERIOD_YEAR = 1;
+  PERIOD_HALF = 2;
+  PERIOD_QUARTER = 3;
+  PERIOD_MONTH = 4;
+  PERIOD_FORTNIGHT = 5;
+  PERIOD_WEEK = 6;
+  PERIOD_DAY = 7;
+  PERIOD_HOUR = 8;
+  PERIOD_MINUTE = 9;
+  PERIOD_SECOND = 10;
+}

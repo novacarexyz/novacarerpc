@@ -1,0 +1,27 @@
+syntax = "proto3";
+
+package nova.v1;
+
+import "nova/type/media.proto";
+import "nova/type/region.proto";
+
+service LicensorService {
+  rpc ListLicensors(ListLicensorsRequest) returns (ListLicensorsResponse) {}
+}
+
+message ListLicensorsRequest {
+  string query = 1;
+  nova.type.Region country = 2;
+}
+
+message ListLicensorsResponse {
+  repeated Licensor licensors = 1;
+}
+
+message Licensor {
+  string id = 1;
+  string name = 2;
+  nova.type.Media photo = 3;
+  nova.type.Region country = 4;
+  nova.type.Region state = 5;
+}

@@ -1,0 +1,10 @@
+syntax = "proto3";
+
+package nova.type;
+
+import "nova/type/timestamp.proto";
+
+message Interval {
+  Timestamp startAt = 1;
+  Timestamp endAt = 2;
+}

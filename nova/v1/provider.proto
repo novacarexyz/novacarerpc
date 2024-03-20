@@ -1,0 +1,30 @@
+syntax = "proto3";
+
+package nova.v1;
+
+import "nova/type/locale.proto";
+import "nova/type/media.proto";
+import "nova/type/region.proto";
+import "nova/type/timezone.proto";
+import "nova/v1/certificate.proto";
+import "nova/v1/gender.proto";
+import "nova/v1/license.proto";
+import "nova/v1/specialty.proto";
+import "nova/v1/verification_status.proto";
+
+message Provider {
+  string id = 1;
+  string name = 2;
+  repeated nova.type.Media photos = 3;
+  nova.type.Region country = 4;
+  nova.type.Region state = 5;
+  nova.type.Region city = 6;
+  repeated nova.type.Locale languages = 7;
+  nova.type.Timezone timezone = 8;
+  Gender gender = 9;
+  repeated Specialty specialties = 14;
+  VerificationStatus verificationStatus = 15;
+  string summary = 16;
+  repeated Certificate certificates = 17;
+  repeated License licenses = 18;
+}

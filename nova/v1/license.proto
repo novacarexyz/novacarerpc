@@ -1,0 +1,54 @@
+syntax = "proto3";
+
+package nova.v1;
+
+import "nova/type/date.proto";
+import "nova/type/media.proto";
+import "nova/type/node.proto";
+import "nova/v1/licensor.proto";
+import "nova/v1/verification_status.proto";
+
+service LicenseService {
+  rpc CreateLicense(CreateLicenseRequest) returns (CreateLicenseResponse) {}
+  rpc UpdateLicense(UpdateLicenseRequest) returns (UpdateLicenseResponse) {}
+  rpc DeleteLicense(DeleteLicenseRequest) returns (DeleteLicenseResponse) {}
+}
+
+message CreateLicenseRequest {
+  string credential = 1;
+  repeated nova.type.Media photos = 2;
+  nova.type.Node licensable = 3;
+  Licensor licensor = 4;
+  nova.type.Date start = 5;
+}
+
+message CreateLicenseResponse {
+  License license = 1;
+}
+
+message UpdateLicenseRequest {
+  string id = 1;
+  string credential = 2;
+  repeated nova.type.Media photos = 3;
+  Licensor licensor = 5;
+  nova.type.Date start = 6;
+}
+
+message UpdateLicenseResponse {
+  License license = 1;
+}
+
+message DeleteLicenseRequest {
+  string id = 1;
+}
+
+message DeleteLicenseResponse {}
+
+message License {
+  string id = 1;
+  string credential = 2;
+  repeated nova.type.Media photos = 3;
+  Licensor licensor = 5;
+  nova.type.Date start = 6;
+  VerificationStatus verificationStatus = 15;
+}

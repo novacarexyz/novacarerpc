@@ -1,0 +1,23 @@
+syntax = "proto3";
+
+package nova.v1;
+
+import "nova/type/date.proto";
+import "nova/type/locale.proto";
+import "nova/type/media.proto";
+import "nova/type/region.proto";
+import "nova/type/timezone.proto";
+import "nova/v1/gender.proto";
+
+message Customer {
+  string id = 1;
+  string name = 2;
+  nova.type.Media photo = 3;
+  nova.type.Date birth = 4;
+  nova.type.Region country = 5;
+  nova.type.Region state = 6;
+  nova.type.Region city = 7;
+  repeated nova.type.Locale languages = 8;
+  nova.type.Timezone timezone = 9;
+  Gender gender = 10;
+}

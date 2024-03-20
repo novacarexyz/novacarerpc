@@ -1,0 +1,57 @@
+syntax = "proto3";
+
+package nova.v1;
+
+import "nova/type/date.proto";
+import "nova/type/media.proto";
+import "nova/type/node.proto";
+import "nova/v1/certifier.proto";
+import "nova/v1/verification_status.proto";
+
+service CertificateService {
+  rpc CreateCertificate(CreateCertificateRequest) returns (CreateCertificateResponse) {}
+  rpc UpdateCertificate(UpdateCertificateRequest) returns (UpdateCertificateResponse) {}
+  rpc DeleteCertificate(DeleteCertificateRequest) returns (DeleteCertificateResponse) {}
+}
+
+message CreateCertificateRequest {
+  string degree = 1;
+  string fieldOfStudy = 2;
+  repeated nova.type.Media photos = 3;
+  nova.type.Node certifiable = 4;
+  Certifier certifier = 5;
+  nova.type.Date end = 7;
+}
+
+message CreateCertificateResponse {
+  Certificate certificate = 1;
+}
+
+message UpdateCertificateRequest {
+  string id = 1;
+  string degree = 2;
+  string fieldOfStudy = 3;
+  repeated nova.type.Media photos = 4;
+  Certifier certifier = 6;
+  nova.type.Date end = 8;
+}
+
+message UpdateCertificateResponse {
+  Certificate certificate = 1;
+}
+
+message DeleteCertificateRequest {
+  string id = 1;
+}
+
+message DeleteCertificateResponse {}
+
+message Certificate {
+  string id = 1;
+  string degree = 2;
+  string fieldOfStudy = 3;
+  repeated nova.type.Media photos = 4;
+  Certifier certifier = 6;
+  nova.type.Date end = 8;
+  VerificationStatus verificationStatus = 15;
+}

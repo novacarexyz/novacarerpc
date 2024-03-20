@@ -1,0 +1,36 @@
+syntax = "proto3";
+
+package nova.v1;
+
+import "nova/type/media.proto";
+import "nova/v1/customer.proto";
+import "nova/v1/provider.proto";
+
+service UserService {
+  rpc GetUser(GetUserRequest) returns (GetUserResponse) {}
+  rpc CreateUser(CreateUserRequest) returns (CreateUserResponse) {}
+}
+
+message GetUserRequest {
+  string id = 1;
+}
+
+message GetUserResponse {
+  User user = 1;
+}
+
+message CreateUserRequest {}
+
+message CreateUserResponse {
+  User user = 1;
+}
+
+message User {
+  string id = 1;
+  string name = 2;
+  nova.type.Media photo = 3;
+  string email = 4;
+  string phoneNumber = 5;
+  repeated Customer customers = 10;
+  Provider provider = 11;
+}
